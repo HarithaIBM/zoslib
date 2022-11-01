@@ -73,9 +73,7 @@ $(function() {
 <div class="title">zos-io.cc File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="zos-io_8h_source.html">zos-io.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="zos-bpx_8h_source.html">zos-bpx.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="zos-char-util_8h_source.html">zos-char-util.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="zos-base_8h_source.html">zos-base.h</a>&quot;</code><br />
 <code>#include &lt;errno.h&gt;</code><br />
 <code>#include &lt;poll.h&gt;</code><br />
 <code>#include &lt;pthread.h&gt;</code><br />
@@ -112,6 +110,10 @@ Functions</h2></td></tr>
 <tr class="separator:a1a0138d7459e13d4a6f70cce01aab5c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5595cb548093b4cba59dbe97ccce1097"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zos-io_8cc.html#a5595cb548093b4cba59dbe97ccce1097">__getfdccsid</a> (int fd)</td></tr>
 <tr class="separator:a5595cb548093b4cba59dbe97ccce1097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0b25806c76ed86c9baa64586c03eda3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zos-io_8cc.html#ad0b25806c76ed86c9baa64586c03eda3">__setLogMemoryUsage</a> (bool value)</td></tr>
+<tr class="separator:ad0b25806c76ed86c9baa64586c03eda3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad035862547bbb29aa80c543db60c35b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zos-io_8cc.html#ad035862547bbb29aa80c543db60c35b6">__memprintf</a> (const char *format,...)</td></tr>
+<tr class="separator:ad035862547bbb29aa80c543db60c35b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a55c845b63ed7450afbd05ada9c9bfded"></a>
@@ -392,6 +394,40 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ad035862547bbb29aa80c543db60c35b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad035862547bbb29aa80c543db60c35b6">&#9670;&nbsp;</a></span>__memprintf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void __memprintf </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Logs memory allocation and release to the file name specified in the environment variable zoslib_config_t.MEMORY_USAGE_LOG_FILE_ENVAR. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">same</td><td>as C's printf() parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a1a0138d7459e13d4a6f70cce01aab5c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1a0138d7459e13d4a6f70cce01aab5c8">&#9670;&nbsp;</a></span>__setfdccsid()</h2>
 
@@ -425,6 +461,24 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 if successful, or -1 on failure. </dd></dl>
+
+</div>
+</div>
+<a id="ad0b25806c76ed86c9baa64586c03eda3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0b25806c76ed86c9baa64586c03eda3">&#9670;&nbsp;</a></span>__setLogMemoryUsage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void __setLogMemoryUsage </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

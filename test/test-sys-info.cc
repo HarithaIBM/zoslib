@@ -3,13 +3,9 @@
 
 namespace {
 
-TEST(SysInfoTest, NumOnlineCPUs) {
-  EXPECT_GE(__get_num_online_cpus(), 0);
-}
+TEST(SysInfoTest, NumOnlineCPUs) { EXPECT_GE(__get_num_online_cpus(), 0); }
 
-TEST(SysInfoTest, NumFrames) {
-  EXPECT_GE(__get_num_frames(), 0);
-}
+TEST(SysInfoTest, NumFrames) { EXPECT_GE(__get_num_frames(), 0); }
 
 TEST(SysInfoTest, CPUModel) {
   size_t size = ZOSCPU_MODEL_LENGTH + 1;

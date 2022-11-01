@@ -77,10 +77,7 @@ void __bpx4gth(int *input_length, void **input_address, int *output_length,
   void *argv[] = {input_length, input_address, output_length, output_address,
                   return_value, return_code,   reason_code};
 
-  __asm volatile(" basr 14,%0\n"
-                 : "+NR:r15"(reg15)
-                 : "NR:r1"(&argv)
-                 : "r0");
+  __asm volatile(" basr 14,%0\n" : "+NR:r15"(reg15) : "NR:r1"(&argv) : "r0");
 }
 
 void __bpx4lcr(int pathname_length, char *pathname, int attributes_length,

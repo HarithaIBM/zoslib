@@ -1,8 +1,6 @@
 \hypertarget{zos-io_8cc}{}\doxysection{src/zos-\/io.cc File Reference}
 \label{zos-io_8cc}\index{src/zos-\/io.cc@{src/zos-\/io.cc}}
-{\ttfamily \#include \char`\"{}zos-\/io.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}zos-\/bpx.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}zos-\/char-\/util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}zos-\/base.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$errno.\+h$>$}\newline
 {\ttfamily \#include $<$poll.\+h$>$}\newline
 {\ttfamily \#include $<$pthread.\+h$>$}\newline
@@ -38,6 +36,10 @@ int \mbox{\hyperlink{zos-io_8cc_a6c79250963a5848440a39bb4b71d56b6}{\+\_\+\+\_\+c
 int \mbox{\hyperlink{zos-io_8cc_a1a0138d7459e13d4a6f70cce01aab5c8}{\+\_\+\+\_\+setfdccsid}} (int fd, int t\+\_\+ccsid)
 \item 
 int \mbox{\hyperlink{zos-io_8cc_a5595cb548093b4cba59dbe97ccce1097}{\+\_\+\+\_\+getfdccsid}} (int fd)
+\item 
+void \mbox{\hyperlink{zos-io_8cc_ad0b25806c76ed86c9baa64586c03eda3}{\+\_\+\+\_\+set\+Log\+Memory\+Usage}} (bool value)
+\item 
+void \mbox{\hyperlink{zos-io_8cc_ad035862547bbb29aa80c543db60c35b6}{\+\_\+\+\_\+memprintf}} (const char $\ast$format,...)
 \end{DoxyCompactItemize}
 
 
@@ -125,6 +127,17 @@ Get file descriptor C\+C\+S\+ID.
 \begin{DoxyReturn}{Returns}
 returns file descriptors ccsid. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{zos-io_8cc_ad035862547bbb29aa80c543db60c35b6}\label{zos-io_8cc_ad035862547bbb29aa80c543db60c35b6}} 
+\index{zos-\/io.cc@{zos-\/io.cc}!\_\_memprintf@{\_\_memprintf}}
+\index{\_\_memprintf@{\_\_memprintf}!zos-\/io.cc@{zos-\/io.cc}}
+\doxysubsubsection{\texorpdfstring{\_\_memprintf()}{\_\_memprintf()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+memprintf (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Logs memory allocation and release to the file name specified in the environment variable zoslib\+\_\+config\+\_\+t.\+M\+E\+M\+O\+R\+Y\+\_\+\+U\+S\+A\+G\+E\+\_\+\+L\+O\+G\+\_\+\+F\+I\+L\+E\+\_\+\+E\+N\+V\+AR. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em same} & as C\textquotesingle{}s printf() parameters \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{zos-io_8cc_a1a0138d7459e13d4a6f70cce01aab5c8}\label{zos-io_8cc_a1a0138d7459e13d4a6f70cce01aab5c8}} 
 \index{zos-\/io.cc@{zos-\/io.cc}!\_\_setfdccsid@{\_\_setfdccsid}}
 \index{\_\_setfdccsid@{\_\_setfdccsid}!zos-\/io.cc@{zos-\/io.cc}}
@@ -141,6 +154,12 @@ Set file descriptor to the provided C\+C\+S\+ID.
 \begin{DoxyReturn}{Returns}
 returns 0 if successful, or -\/1 on failure. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{zos-io_8cc_ad0b25806c76ed86c9baa64586c03eda3}\label{zos-io_8cc_ad0b25806c76ed86c9baa64586c03eda3}} 
+\index{zos-\/io.cc@{zos-\/io.cc}!\_\_setLogMemoryUsage@{\_\_setLogMemoryUsage}}
+\index{\_\_setLogMemoryUsage@{\_\_setLogMemoryUsage}!zos-\/io.cc@{zos-\/io.cc}}
+\doxysubsubsection{\texorpdfstring{\_\_setLogMemoryUsage()}{\_\_setLogMemoryUsage()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+set\+Log\+Memory\+Usage (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{zos-io_8cc_aea1e680b4b559780e2ce0ea587dbd77f}\label{zos-io_8cc_aea1e680b4b559780e2ce0ea587dbd77f}} 
 \index{zos-\/io.cc@{zos-\/io.cc}!dprintf@{dprintf}}
 \index{dprintf@{dprintf}!zos-\/io.cc@{zos-\/io.cc}}

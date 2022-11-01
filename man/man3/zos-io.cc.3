@@ -1,4 +1,4 @@
-.TH "src/zos-io.cc" 3 "Tue Jan 18 2022" "zoslib" \" -*- nroff -*-
+.TH "src/zos-io.cc" 3 "Tue Nov 1 2022" "zoslib" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,11 +6,7 @@ src/zos-io.cc
 .SH SYNOPSIS
 .br
 .PP
-\fC#include 'zos\-io\&.h'\fP
-.br
-\fC#include 'zos\-bpx\&.h'\fP
-.br
-\fC#include 'zos\-char\-util\&.h'\fP
+\fC#include 'zos\-base\&.h'\fP
 .br
 \fC#include <errno\&.h>\fP
 .br
@@ -68,6 +64,12 @@ src/zos-io.cc
 .br
 .ti -1c
 .RI "int \fB__getfdccsid\fP (int fd)"
+.br
+.ti -1c
+.RI "void \fB__setLogMemoryUsage\fP (bool value)"
+.br
+.ti -1c
+.RI "void \fB__memprintf\fP (const char *format,\&.\&.\&.)"
 .br
 .in -1c
 .SH "Macro Definition Documentation"
@@ -134,6 +136,15 @@ returns file descriptors ccsid\&.
 .RE
 .PP
 
+.SS "void __memprintf (const char * format,  \&.\&.\&.)"
+Logs memory allocation and release to the file name specified in the environment variable zoslib_config_t\&.MEMORY_USAGE_LOG_FILE_ENVAR\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsame\fP as C's printf() parameters 
+.RE
+.PP
+
 .SS "int __setfdccsid (int fd, int t_ccsid)"
 Set file descriptor to the provided CCSID\&. 
 .PP
@@ -149,6 +160,8 @@ Set file descriptor to the provided CCSID\&.
 returns 0 if successful, or -1 on failure\&. 
 .RE
 .PP
+
+.SS "void __setLogMemoryUsage (bool value)"
 
 .SS "int dprintf (int fd, const char *,  \&.\&.\&.)"
 Debug Printf\&. 

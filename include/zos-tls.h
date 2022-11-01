@@ -19,9 +19,9 @@
 
 /**TODO(itodorov) - zos: document these interfaces **/
 struct __Z_EXPORT __tlsanchor;
-__Z_EXPORT struct __tlsanchor* __tlsvaranchor_create(size_t sz);
+__Z_EXPORT struct __tlsanchor *__tlsvaranchor_create(size_t sz);
 __Z_EXPORT void __tlsvaranchor_destroy(struct __tlsanchor *anchor);
-__Z_EXPORT void* __tlsPtrFromAnchor(struct __tlsanchor *anchor, const void *);
+__Z_EXPORT void *__tlsPtrFromAnchor(struct __tlsanchor *anchor, const void *);
 
 template <typename T> class __Z_EXPORT __tlssim {
   struct __tlsanchor *anchor;

@@ -38,15 +38,15 @@ typedef struct {
   ____sem_t *_s;
 } __sem_t;
 
-#define sem_t         __sem_t
+#define sem_t __sem_t
 
-#define sem_init      __sem_init
-#define sem_post      __sem_post
-#define sem_trywait   __sem_trywait
+#define sem_init __sem_init
+#define sem_post __sem_post
+#define sem_trywait __sem_trywait
 #define sem_timedwait __sem_timedwait
-#define sem_wait      __sem_wait
-#define sem_getvalue  __sem_getvalue
-#define sem_destroy   __sem_destroy
+#define sem_wait __sem_wait
+#define sem_getvalue __sem_getvalue
+#define sem_destroy __sem_destroy
 
 #ifdef __cplusplus
 extern "C" {

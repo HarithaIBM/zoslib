@@ -170,7 +170,7 @@ __Z_EXPORT void __fd_close(int fd);
                : (__ae_thread_swapmode(__AE_ASCII_MODE), (_x),                 \
                   __ae_thread_swapmode(__AE_EBCDIC_MODE), 1))
 
-inline void* __Z_EXPORT __convert_one_to_one(const void *table, void *dst,
+inline void *__Z_EXPORT __convert_one_to_one(const void *table, void *dst,
                                              size_t size, const void *src) {
   void *rst = dst;
   __asm volatile(" troo 2,%2,1 \n jo *-4 \n"
@@ -200,8 +200,8 @@ public:
 
 #endif // ifdef __cplusplus
 
-inline unsigned strlen_ae(const unsigned char *str, int *code_page,
-                          int max_len, int *ambiguous) {
+inline unsigned strlen_ae(const unsigned char *str, int *code_page, int max_len,
+                          int *ambiguous) {
   static int last_ccsid = 819;
   static const unsigned char _tab_a[256] __attribute__((aligned(8))) = {
       1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,

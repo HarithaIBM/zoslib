@@ -88,6 +88,10 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aa1dd231b327d89cd556a8d70eadd0bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae17c26cffd44a34f1e7b099f75078c5"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzoslib__config.html#aae17c26cffd44a34f1e7b099f75078c5">UNTAGGED_READ_MODE_CCSID1047_ENVAR</a></td></tr>
 <tr class="separator:aae17c26cffd44a34f1e7b099f75078c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07db5b94ecf4d8e8b1827fdc1d3fb175"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzoslib__config.html#a07db5b94ecf4d8e8b1827fdc1d3fb175">MEMORY_USAGE_LOG_FILE_ENVAR</a></td></tr>
+<tr class="separator:a07db5b94ecf4d8e8b1827fdc1d3fb175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a688635cb30faba13e751e5970136a687"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzoslib__config.html#a688635cb30faba13e751e5970136a687">MEMORY_USAGE_LOG_LEVEL_ENVAR</a></td></tr>
+<tr class="separator:a688635cb30faba13e751e5970136a687"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Configuration for zoslib library </p>
@@ -149,6 +153,36 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>string to indicate the envar to be used to toggle IPC cleanup </p>
+
+</div>
+</div>
+<a id="a07db5b94ecf4d8e8b1827fdc1d3fb175"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07db5b94ecf4d8e8b1827fdc1d3fb175">&#9670;&nbsp;</a></span>MEMORY_USAGE_LOG_FILE_ENVAR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* zoslib_config::MEMORY_USAGE_LOG_FILE_ENVAR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>String to indicate the envar to be used to set the name of the log file, including 'stdout' or 'stderr', to which diagnostic messages for memory allocation and release are to be written. </p>
+
+</div>
+</div>
+<a id="a688635cb30faba13e751e5970136a687"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a688635cb30faba13e751e5970136a687">&#9670;&nbsp;</a></span>MEMORY_USAGE_LOG_LEVEL_ENVAR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* zoslib_config::MEMORY_USAGE_LOG_LEVEL_ENVAR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>String to indicate the envar to be used to specify the level of details to display when memory is allocated or freed. </p>
 
 </div>
 </div>

@@ -30,14 +30,14 @@
 
 #define __ZOS_CC
 
-#include "zos-macros.h"
 #include "zos-bpx.h"
 #include "zos-char-util.h"
+#include "zos-getentropy.h"
 #include "zos-io.h"
+#include "zos-macros.h"
 #include "zos-savstack.h"
 #include "zos-sys-info.h"
 #include "zos-tls.h"
-#include "zos-getentropy.h"
 
 #define IPC_CLEANUP_ENVAR_DEFAULT "__IPC_CLEANUP"
 #define DEBUG_ENVAR_DEFAULT "__RUNDEBUG"
@@ -292,7 +292,7 @@ __Z_EXPORT int __dlcb_entry_name(char *buf, int size, void *dlcb);
 __Z_EXPORT void *__dlcb_entry_addr(void *dlcb);
 
 /**
- * Walk through list of dlcb 
+ * Walk through list of dlcb
  * \param [in] cb - callback function for each dlcb,
  *  the callback will have the name, the address and data, which is
  *  a copy of whatever value was passed as the second argument, as
@@ -301,7 +301,7 @@ __Z_EXPORT void *__dlcb_entry_addr(void *dlcb);
  * \return returns whatever value was returned by the last call to callback,
  *  if no dlcb is found, return -1
  */
-__Z_EXPORT int __dlcb_iterate(int (*cb)(char* name, void* addr, void* data),
+__Z_EXPORT int __dlcb_iterate(int (*cb)(char *name, void *addr, void *data),
                               void *data);
 
 /**
@@ -365,7 +365,7 @@ __Z_EXPORT void *__zalloc_for_fd(size_t len, const char *filename, int fd,
  * be converted to ASCII if the file contains EBCDIC.
  */
 __Z_EXPORT void *roanon_mmap(void *_, size_t len, int prot, int flags,
-                  const char *filename, int fd, off_t offset);
+                             const char *filename, int fd, off_t offset);
 /**
  * Deallocate memory
  * \param [in] addr start address of memory
@@ -396,8 +396,9 @@ __Z_EXPORT int anon_munmap(void *addr, size_t len);
  * \return returns 0 if successful, -1 if unsuccessful.
  */
 __Z_EXPORT int __cond_timed_wait(unsigned int secs, unsigned int nsecs,
-                      unsigned int event_list, unsigned int *secs_rem,
-                      unsigned int *nsecs_rem);
+                                 unsigned int event_list,
+                                 unsigned int *secs_rem,
+                                 unsigned int *nsecs_rem);
 
 enum COND_TIME_WAIT_CONSTANTS { CW_INTRPT = 1, CW_CONDVAR = 32 };
 
@@ -419,9 +420,9 @@ __Z_EXPORT int getentropy(void *buffer, size_t length);
 
 /**
  * Return the LE version as a string in the format of
- * "Product %d%s Version %d Release %d Modification %d" 
+ * "Product %d%s Version %d Release %d Modification %d"
  */
-__Z_EXPORT char* __get_le_version(void);
+__Z_EXPORT char *__get_le_version(void);
 
 /**
  * Prints the build version of the library
@@ -520,7 +521,7 @@ typedef struct __Z_EXPORT zoslib_config {
    * to display when memory is allocated or freed.
    */
   const char *MEMORY_USAGE_LOG_LEVEL_ENVAR =
-              MEMORY_USAGE_LOG_LEVEL_ENVAR_DEFAULT;
+      MEMORY_USAGE_LOG_LEVEL_ENVAR_DEFAULT;
 } zoslib_config_t;
 
 /**
@@ -781,10 +782,10 @@ struct __Z_EXPORT __init_zoslib {
  * \param [out] bitset - 1
  * \return bitset - 1.
  */
-template <std::size_t N> __Z_EXPORT std::bitset<N>
-                                    __subtractOne(std::bitset<N> bs) {
+template <std::size_t N>
+__Z_EXPORT std::bitset<N> __subtractOne(std::bitset<N> bs) {
   // Flip bits from rightmost bit till and including the first 1:
-  for (int i=0; i<bs.size(); i++) {
+  for (int i = 0; i < bs.size(); i++) {
     if (bs[i]) {
       bs[i] = 0b0;
       break;
@@ -801,10 +802,9 @@ template <std::size_t N> __Z_EXPORT std::bitset<N>
  * \param [out] bitset + 1
  * \return bitset + 1.
  */
-template <std::size_t N> __Z_EXPORT std::bitset<N>
-                                    __addOne(std::bitset<N> bs) {
+template <std::size_t N> __Z_EXPORT std::bitset<N> __addOne(std::bitset<N> bs) {
   // Flip bits from rightmost bit till and including the first 0:
-  for (int i=0; i<bs.size(); i++) {
+  for (int i = 0; i < bs.size(); i++) {
     if (!bs[i]) {
       bs[i] = 0b1;
       break;

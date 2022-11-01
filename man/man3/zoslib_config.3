@@ -1,4 +1,4 @@
-.TH "zoslib_config" 3 "Tue Jan 18 2022" "zoslib" \" -*- nroff -*-
+.TH "zoslib_config" 3 "Tue Nov 1 2022" "zoslib" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -32,6 +32,12 @@ zoslib_config
 .ti -1c
 .RI "const char * \fBUNTAGGED_READ_MODE_CCSID1047_ENVAR\fP"
 .br
+.ti -1c
+.RI "const char * \fBMEMORY_USAGE_LOG_FILE_ENVAR\fP"
+.br
+.ti -1c
+.RI "const char * \fBMEMORY_USAGE_LOG_LEVEL_ENVAR\fP"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -46,6 +52,10 @@ string to indicate the envar to be used to toggle debug mode
 string to indicate the envar to be used to toggle max number of forks 
 .SS "const char* zoslib_config::IPC_CLEANUP_ENVAR"
 string to indicate the envar to be used to toggle IPC cleanup 
+.SS "const char* zoslib_config::MEMORY_USAGE_LOG_FILE_ENVAR"
+String to indicate the envar to be used to set the name of the log file, including 'stdout' or 'stderr', to which diagnostic messages for memory allocation and release are to be written\&. 
+.SS "const char* zoslib_config::MEMORY_USAGE_LOG_LEVEL_ENVAR"
+String to indicate the envar to be used to specify the level of details to display when memory is allocated or freed\&. 
 .SS "const char* zoslib_config::RUNTIME_LIMIT_ENVAR"
 string to indicate the envar to be used to toggle runtime limit 
 .SS "const char* zoslib_config::UNTAGGED_READ_MODE_CCSID1047_ENVAR"

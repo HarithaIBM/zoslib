@@ -690,16 +690,14 @@ void __memprintf(const char *format, ...) {
   static const char *fname = __getMemoryUsageLogFile();
   static bool isstderr = !strcmp(fname, "stderr");
   static bool isstdout = !strcmp(fname, "stdout");
-  static FILE *fp = isstderr ? stderr : \
-                    isstdout ? stdout : \
-                    fopen(fname, "a+");
+  static FILE *fp = isstderr ? stderr : isstdout ? stdout : fopen(fname, "a+");
   if (!fp) {
     va_end(args);
     perror(fname);
     __setLogMemoryUsage(false);
     return;
   }
-  char buf[PATH_MAX*2];
+  char buf[PATH_MAX * 2];
   vsnprintf(buf, sizeof(buf), format, args);
   va_end(args);
 

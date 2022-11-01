@@ -9,10 +9,10 @@
 #define _OPEN_SYS_FILE_EXT 1
 #define _OPEN_MSGQ_EXT 1
 
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stddef.h>
 
 #include "zos-getentropy.h"
 
@@ -24,11 +24,11 @@ static unsigned char _value(int bit) {
   unsigned long long t0, t1, start;
   int i;
   asm(" la 15,0 \n svc 137\n" ::: "r15", "r6");
-  (void) __stckf(&start);
+  (void)__stckf(&start);
   start = start >> bit;
   for (i = 0; i < 400; ++i) {
     asm(" la 15,0 \n svc 137\n" ::: "r15", "r6");
-    (void) __stckf(&t0);
+    (void)__stckf(&t0);
     t0 = t0 >> bit;
     if ((t0 - start) > 0xfffff) {
       break;
@@ -38,8 +38,8 @@ static unsigned char _value(int bit) {
   return (unsigned char)t1;
 }
 
-static void _slow(int size, void* output) {
-  char* out = (char*)output;
+static void _slow(int size, void *output) {
+  char *out = (char *)output;
   int i;
 #ifdef _LP64
   static int bits = 0;
@@ -55,10 +55,11 @@ static void _slow(int size, void* output) {
 
   while (bits == 0 || bits > 11) {
     for (i = 0; i < 10; ++i) {
-      (void) __stckf(&t0);
-      (void) __stckf(&t1);
+      (void)__stckf(&t0);
+      (void)__stckf(&t1);
       r = t0 ^ t1;
-      if (r < m) m = r;
+      if (r < m)
+        m = r;
     }
     bits = zbitcnt[(-m & m) % 37];
   }
@@ -68,8 +69,8 @@ static void _slow(int size, void* output) {
   }
 }
 
-extern "C" int getentropy(void* output, size_t size) {
-  char* out = (char*)output;
+extern "C" int getentropy(void *output, size_t size) {
+  char *out = (char *)output;
 #ifdef _LP64
   static int feature = -1;
 #else
@@ -82,14 +83,14 @@ extern "C" int getentropy(void* output, size_t size) {
   } parm_t;
 
   if (feature == -1) {
-    if (0x40 & *(char*)(207)) {
+    if (0x40 & *(char *)(207)) {
       volatile parm_t value = {0, 0};
       __asm(" prno 8,10\n"
             " jo *-4\n"
             :
             : "NR:r0"(0), "NR:r1"(&value)
             :);
-    if (0x2000 & value.b) {
+      if (0x2000 & value.b) {
         feature = 1;
         // parm bit 114 is on
       } else {
